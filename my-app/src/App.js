@@ -10,7 +10,7 @@ function App() {
   const [response, setResponse] = useState("");
 
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: "API_KEY",
   });
 
 
@@ -41,28 +41,53 @@ function App() {
   
 
   return (
-    <Container>
-          <div>
-            <Typography variant="h3" gutterBottom align="center">
-              <span style={{ color: 'red' }}>Symply</span>
-              <span style={{ color: 'blue' }}>Kode</span>
-            </Typography>
+        <Container style={{ backgroundColor: '#585857', height: '100vh' }}>
+        <div> 
+            <Typography variant="h3" gutterBottom align="center" paddingY={3}>
+              <span style={{ color: '#EEF055' }}>Symply</span> 
+              <span style={{ color: '#20201E' }}>Kode</span> 
+            </Typography> 
           </div>
-            <TextField
-              id="outlined-textarea"
-              placeholder="Greatness Awaits..."
-              multiline
-              fullWidth
-              autoFocus
-              rows={5}
-              maxRows={5}
-              margin="normal"
-              value={prompt}
-              onChange={(e) => {
-                setPrompt(e.target.value);
-                chrome.storage.local.set({ prompt: e.target.value });
-              }}
-            />
+          <TextField
+            className="no-outline"
+            variant="outlined"
+            id="outlined-textarea"
+            placeholder="Greatness Awaits..."
+            InputProps={{
+              style: {
+                backgroundColor: '#585857',
+                color: '#F9F9F6',
+                borderColor: '#ABABA8',
+                borderWidth: 6,
+                borderStyle: 'solid'
+              }
+            }}
+            InputLabelProps={{
+              style: {
+                color: '#ABABA8'
+              }
+            }}
+            FormHelperTextProps={{
+              style: {
+                color: '#ABABA8'
+              }
+            }}
+            multiline
+            fullWidth
+            rows={5}
+            maxRows={5}
+            margin="normal"
+            value={prompt}
+            onChange={(e) => {
+              setPrompt(e.target.value);
+              chrome.storage.local.set({ prompt: e.target.value });
+            }}
+          />
+
+
+
+
+
             <Button
               fullWidth
               disableElevation
