@@ -10,7 +10,7 @@ function App() {
   const [response, setResponse] = useState("");
 
   const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: "API_KEY",
   });
 
 
