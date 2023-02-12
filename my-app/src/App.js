@@ -10,7 +10,7 @@ function App() {
   const [response, setResponse] = useState("");
 
   const configuration = new Configuration({
-    apiKey: "API_KEY",
+    apiKey: "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",
   });
 
 
@@ -35,7 +35,10 @@ function App() {
       frequency_penalty: 0.0,
       presence_penalty: 0.0
     });
-    setResponse(completion.data.choices[0].text);
+    // remove the first /n 
+    let tmp = completion.data.choices[0].text;
+    tmp = completion.data.choices[0].text.substring(1);
+    setResponse(tmp);
   }
 
   
@@ -48,6 +51,11 @@ function App() {
               <span style={{ color: '#20201E' }}>Kode</span> 
             </Typography> 
           </div>
+
+          <Typography variant="body1" color="#20201E" fontWeight="fontWeightBold" style={{ marginLeft: '2px' }}>
+            Paste your Kode here!
+          </Typography>
+
           <TextField
             className="no-outline"
             variant="outlined"
@@ -85,20 +93,59 @@ function App() {
           />
 
 
+          <Button
+            fullWidth
+            disableElevation
+            variant="contained"
+            onClick={() => handleSubmit()}
+            style={{ backgroundColor: '#eeff55', width: '25%', marginLeft: '75%', color:"#20201E"}}
+            onMouseEnter={() => {
+              this.style.backgroundColor = '#b59a14';
+            }}
+            onMouseLeave={() => {
+              this.style.backgroundColor = '#eeff55';
+            }}
+          >
+            Go!
+          </Button>
 
+          <Typography variant="body1" color="#20201E" fontWeight="fontWeightBold" style={{ marginLeft: '2px' }}>
+              <span style={{ color: '#20201E' }}>Enjoy </span> 
+              <span style={{ color: '#EEF055' }}>:)</span>
+          </Typography>
 
+            <TextField 
+            className="no-outline"
+            variant="outlined"
+            id="outlined-textarea"
+            value={response}
+            InputProps={{
+              style: {
+                backgroundColor: '#585857',
+                color: '#F9F9F6',
+                borderColor: '#ABABA8',
+                borderWidth: 6,
+                borderStyle: 'solid'
+              }
+            }}
+            InputLabelProps={{
+              style: {
+                color: '#ABABA8'
+              }
+            }}
+            FormHelperTextProps={{
+              style: {
+                color: '#ABABA8'
+              }
+            }}
+            multiline
+            fullWidth
+            rows={5}
+            maxRows={5}
+            margin="normal"
+            >
+            </TextField>
 
-            <Button
-              fullWidth
-              disableElevation
-              variant="contained"
-              onClick={() => handleSubmit()}
-      >
-              Submit
-            </Button>
-          <Grid item xs={12} sx={{ mt: 3 }}>
-            <Paper sx={{ p: 3 }}>{response}</Paper>
-          </Grid>
     </Container>
   );
 }
