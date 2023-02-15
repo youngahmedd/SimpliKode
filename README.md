@@ -1,4 +1,6 @@
-# SimpliKode
+# SymplyKode
+
+Created by Ahmed Ahmed and Sumanth Kumar for UOttaHack 5 2023
 
 ## Inspiration
 As developers, we tend to have to read large blocks of code written by other developers so debugging might take a while until we understand all the code. So We wanted a way of being able to summarize blocks of code in normal everyday English quickly.
